@@ -15,3 +15,23 @@
 #
 # ##### END GPL LICENSE BLOCK #####
 
+import sys
+import chess
+
+
+def Main():
+    board = chess.Board()
+    while True:
+        msg = input().strip()
+
+        if msg == "quit":
+            sys.exit()
+        elif msg == "isready":
+            print("readyok")
+        elif msg == "uci":
+            print("uciok")
+        elif msg == "d":
+            print(board)
+
+
+Main()
