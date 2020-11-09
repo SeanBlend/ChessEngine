@@ -26,7 +26,9 @@ class Tree:
         self.depth = depth
 
     def Go(self):
-        pass
+        root = Node(self, self.board, 0)
+        move = root.Eval(self.board.turn)[1]
+        print(f"bestmove {move.uci()}")
 
 
 class Node:
