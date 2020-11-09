@@ -17,6 +17,7 @@
 
 import sys
 import chess
+from _tree import Tree
 
 
 def Main():
@@ -47,6 +48,10 @@ def Main():
                     moves = msg.replace("moves", "").strip().split(" ")
                     for m in moves:
                         board.push_uci(m)
+
+        elif msg.startswith("go"):
+            tree = Tree(board, 3)
+            tree.Go()
 
 
 Main()
