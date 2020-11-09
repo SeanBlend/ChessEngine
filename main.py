@@ -33,5 +33,20 @@ def Main():
         elif msg == "d":
             print(board)
 
+        elif msg == "ucinewgame":
+            board = chess.Board()
+        elif msg.startswith("position"):
+            msg = msg.replace("position", "").strip()
+            if msg.startswith("fen"):
+                fen = msg.replace("fen", "").strip()
+                board = chess.Board(fen)
+            elif msg.startswith("startpos"):
+                msg = msg.replace("startpos", "").strip()
+                board = chess.Board()
+                if msg.startswith("moves"):
+                    moves = msg.replace("moves", "").strip().split(" ")
+                    for m in moves:
+                        board.push_uci(m)
+
 
 Main()
