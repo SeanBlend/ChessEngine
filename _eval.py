@@ -15,5 +15,14 @@
 #
 # ##### END GPL LICENSE BLOCK #####
 
-def Eval(board):
-    pass
+import chess
+
+def Eval(board: chess.Board):
+    fen = board.fen().split(" ")[0]
+    material = fen.count("P") - fen.count("p")
+    material += 3 * (fen.count("N") - fen.count("n"))
+    material += 3 * (fen.count("B") - fen.count("b"))
+    material += 5 * (fen.count("R") - fen.count("r"))
+    material += 9 * (fen.count("Q") - fen.count("q"))
+
+    return material
