@@ -50,7 +50,7 @@ def Main():
                         board.push_uci(m)
 
         elif msg.startswith("go"):
-            tree = Tree(board, 3)
+            tree = Tree(board, 4)
             tree.Go()
 
 
